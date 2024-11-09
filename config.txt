@@ -1,0 +1,71 @@
+title         = Sadeng Port, Indonesia
+location      = Sadeng Port, Indonesia
+position      = -8.190314/110.799053
+IDdevice      = $HOSTNAME
+
+******************************************************************************************
+**  Photo shot commands
+******************************************************************************************
+PhotoCMD         = ssh -i /home/pi/.ssh/id_rsa pi@192.168.1.175 /home/script/scatta.sh medium $LEV $ALERT_SIGNAL &
+PhotoTimeInterval=2
+PhotoAlertLevel  =0
+ 
+******************************************************************************************
+** Alerts parameters
+******************************************************************************************
+*  Alert is issued if Alert Level is larger than this
+AlertLevel        = 2
+
+** Email parameters
+
+** SMS parameters
+
+
+******************************************************************************************
+**  Periodic messages
+******************************************************************************************
+**  4=Wednesday   -1=daily
+Periodic_Day                =4
+Periodic_Day_ADM            =-1
+Periodic_hour               =07:00
+******************************************************************************************
+
+Interval      = 5
+n300          = 300
+n30           = 30
+threshold     = 0.2
+ratioRMS      = 5
+AddRMS        = 0.2
+backFactor    = 0
+methodInterp  = 1
+servo         = OFF
+
+sensorMultFac = -10
+sensorAddFac  = 5.077
+
+Serial        = /dev/ttyUSB0
+BaudRate      = 9600
+
+batteryPin    = 5
+batteryMultiplier=5.5
+
+panelMultiplier=5.5
+panelPin      = 6
+
+sonarTempPin  = 4
+SonarTempMultiplier =140.
+SonarTempAddConst   =-81.
+SonarMinLevel = 0.03
+SonarMaxLevel = 1.0
+SonarMaxDifference=10.2
+
+SaveAllData = 1
+simSonar      = 0
+voltageInterval = 5
+
+MQTT_server=c-greenproject.org
+MQTT_username=unila
+MQTT_password=pwdMQTT@123
+MQTT_msg   =$IDdevice|$DATETIME|$TEMP|$LEV|$CPUTEMP|$FORE30|$FORE300|$RMS|$ALERT_LEVEL|$ALERT_SIGNAL
+#MQTT_msg   =$IDdevice|$DATETIME|$TEMP|$PRESS|$LEV|$BATT|$CPUTEMP|$TEMP380|$FORE30|$FORE300|$RMS|$ALERT_LEVEL|$ALERT_SIGNAL
+MQTT_AllData=False
